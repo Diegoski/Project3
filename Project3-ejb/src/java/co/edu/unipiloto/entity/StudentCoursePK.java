@@ -28,9 +28,7 @@ public class StudentCoursePK implements Serializable {
     @Size(min = 1, max = 10)
     @Column(name = "ID_COURSE")
     private String idCourse;
-    @Basic(optional = true)
-    @Column(name = "QUALIFICATION")
-    private float qualification;
+    
     public StudentCoursePK() {
     }
 
@@ -42,7 +40,6 @@ public class StudentCoursePK implements Serializable {
     public StudentCoursePK(int idStudent, String idCourse, int qualification) {
         this.idStudent = idStudent;
         this.idCourse = idCourse;
-        this.qualification = qualification;
     }
     public int getIdStudent() {
         return idStudent;

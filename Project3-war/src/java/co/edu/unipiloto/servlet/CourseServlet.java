@@ -64,7 +64,7 @@ public class CourseServlet extends HttpServlet {
              courseFacade.find(course.getId());
         }
 
-        response.setContentType("text/html;charset=UTF-8");
+        //response.setContentType("text/html;charset=UTF-8");
 
         request.setAttribute("cour", course);
         request.setAttribute("allCourses", courseFacade.findAll());

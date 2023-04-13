@@ -36,23 +36,24 @@ public class StudentCourseServlet extends HttpServlet {
             throws ServletException, IOException {
      
         int id = Integer.parseInt(request.getParameter("Id"));
-        String courseName = request.getParameter("Nombre");
+        String courseName = request.getParameter("Name");
         int qualification = Integer.parseInt(request.getParameter("Qualification"));
-        StudentCourse student = new StudentCourse(id, courseName, qualification);
+        StudentCourse studentCourse = new StudentCourse(id, courseName,qualification);
         String action = request.getParameter("action");
-        if (action.equals("Add")) {
-            studentCourseFacade.create(student);
+       if (action.equals("Add")) {
+            studentCourseFacade.create(studentCourse);
         }else if (action.equals("Edit")) {
-            studentCourseFacade.edit(student);
+            studentCourseFacade.edit(studentCourse);
         }else if (action.equals("Delete")) {
-            studentCourseFacade.remove(student);
+            studentCourseFacade.remove(studentCourse);
         }else if (action.equals ("Search")) {
-             studentCourseFacade.find(student.getStudent());
+             studentCourseFacade.find(studentCourse.getStudent());
         }
         response.setContentType("text/html;charset=UTF-8");
-        request.setAttribute("student", student);
-        request.setAttribute("allStudents", studentCourseFacade.findAll());
-        request.getRequestDispatcher("studentInfo.jsp").forward(request, response);
+     
+        request.setAttribute("studentCourse", studentCourse);
+        request.setAttribute("allStudentCourse", studentCourseFacade.findAll());
+        request.getRequestDispatcher("studentCourseInfo.jsp").forward(request, response);
         
         
     }

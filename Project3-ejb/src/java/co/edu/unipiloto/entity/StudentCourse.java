@@ -35,7 +35,7 @@ public class StudentCourse implements Serializable {
     protected StudentCoursePK studentCoursePK;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "QUALIFICATION")
-    private Double qualification;
+    private int qualification;
     @JoinColumn(name = "ID_COURSE", referencedColumnName = "ID", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Course course;
@@ -55,6 +55,7 @@ public class StudentCourse implements Serializable {
     }
     public StudentCourse(int idStudent, String idCourse, int qualification){
     this.studentCoursePK = new StudentCoursePK(idStudent, idCourse, qualification);
+    this.qualification = qualification;
     }
     public StudentCoursePK getStudentCoursePK() {
         return studentCoursePK;
@@ -64,11 +65,11 @@ public class StudentCourse implements Serializable {
         this.studentCoursePK = studentCoursePK;
     }
 
-    public Double getQualification() {
+    public int getQualification() {
         return qualification;
     }
 
-    public void setQualification(Double qualification) {
+    public void setQualification(int qualification) {
         this.qualification = qualification;
     }
 

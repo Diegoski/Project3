@@ -52,15 +52,15 @@ table tr:nth-child(even) {
             <table>
                 <tr>
                     <td>Student Id</td>
-                    <td><input type="text" name="Id" value="${StudentCourse.student}" /></td>
+                    <td><input type="text" name="Id" value="${studentcourse.student}" /></td>
                 </tr>
                 <tr>
                     <td>Course Id</td>
-                    <td><input type="text" name="Name" value="${StudentCourse.course}" /></td>
+                    <td><input type="text" name="Name" value="${studentcourse.course}" /></td>
                 </tr>
                 <tr>
                     <td>Qualification</td>
-                    <td><input type="text" name="Qualification" value="${StudentCourse.qualification}" /></td>
+                    <td><input type="text" name="Qualification" value="${studentcourse.qualification}" /></td>
                 </tr>
                 <tr>
                     <td colspan="2" style="text-align: center;">
@@ -77,7 +77,7 @@ table tr:nth-child(even) {
             <th>Student</th>
             <th>Course</th>
             <th>Qualification</th>
-                <c:forEach items="${allStudentCourses}" var="stcour">
+                <c:forEach items="${allStudentCourse}" var="stcour">
                 <tr>
                     <td>${stcour.student}</td>
                     <td>${stcour.course}</td>
